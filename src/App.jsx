@@ -78,36 +78,36 @@ function App() {
           <Route
             path="/employee-dashboard"
             element={
-              //<ProtectedRoute allowedRoles={["employee"]}>
-              <EmployeeDashboard />
-              //</ProtectedRoute>
+              <ProtectedRoute allowedRoles={["employee"]}>
+                <EmployeeDashboard />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/job-categories"
             element={
-              //<ProtectedRoute allowedRoles={["employee"]}>
-              <JobCategories />
-              //</ProtectedRoute>
+              <ProtectedRoute allowedRoles={["employee"]}>
+                <JobCategories />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/jobs/:categoryParam/:techParam"
             element={
-              //<ProtectedRoute allowedRoles={["employee"]}>
-              <Jobs />
-              //</ProtectedRoute>
+              <ProtectedRoute allowedRoles={["employee"]}>
+                <Jobs />
+              </ProtectedRoute>
             }
           />
 
           {/* Protected routes for companies */}
           <Route
             path="/company-dashboard"
-            /*element={
+            element={
               <ProtectedRoute allowedRoles={["company"]}>
                 <Outlet />
               </ProtectedRoute>
-            }*/
+            }
           >
             <Route index element={<CompanyDashboard />} />
             <Route path="active-jobs" element={<ActiveJobs />} />
