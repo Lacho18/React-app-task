@@ -27,9 +27,17 @@ const Modal = ({ isToggled, setIsModalToggled, title, userRole }) => {
     try {
       let result;
       if (userRole === "employee") {
-        result = await loginEmployee(formData).unwrap();
+        try {
+          result = await loginEmployee(formData).unwrap();
+        } catch (err) {
+          setError(err.message);
+        }
       } else {
-        result = await loginCompany(formData).unwrap();
+        try {
+          result = await loginCompany(formData).unwrap();
+        } catch (err) {
+          setError(err.message);
+        }
       }
       dispatch(setAuthData({ userInfo: result.payload }));
 
